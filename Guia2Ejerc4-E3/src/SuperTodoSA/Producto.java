@@ -1,21 +1,23 @@
-package guia2ejerc4.e3;
+package SuperTodoSA;
 
-public class Producto {
+public class Producto implements Comparable<Producto>{
 
     private int codigo;
-
     private String descripcion;
-
-    private int precio;
-
+    private double precio;
     private int stock;
+    private Categoria rubro;
 
-    public Producto(int codigo, String descripcion, int precio, int stock) {
+    public Producto(int codigo, String descripcion, double precio, int stock, Categoria rubro) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
+        this.rubro= rubro;
+        
     }
+
+   
 
     public int getCodigo() {
         return codigo;
@@ -33,11 +35,11 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -49,9 +51,37 @@ public class Producto {
         this.stock = stock;
     }
 
+    public Categoria getRubro() {
+        return rubro;
+    }
+
+    public void setRubro(Categoria rubro) {
+        this.rubro = rubro;
+    }
+    
+
     @Override
     public String toString() {
         return "Producto{" + "codigo=" + codigo + ", descripcion=" + descripcion + ", precio=" + precio + ", stock=" + stock + '}';
+    }
+
+    @Override
+    public int compareTo(Producto t) {
+
+        if (codigo == t.codigo) {
+
+            return 0;
+        } else if (codigo > t.codigo) {
+
+            return 1;
+            
+        } else {
+            
+            return -1;
+        }
+    }
+
+
     }
 
     
@@ -62,4 +92,3 @@ public class Producto {
 
     
     
-}
